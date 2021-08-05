@@ -1,0 +1,73 @@
+<div class="app-frame">
+  <mat-form-field class ="search">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter By Name" />
+  </mat-form-field>
+
+  <mat-form-field class ="search">
+    <mat-select placeholder="Filter By Region">
+      <mat-option *ngFor="let region of regions" 
+            [value]="region.id"
+            (click)="onRegionChange(region.id)"
+      >
+        {{ region.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-card class="list-card" *ngIf="dataSource">
+    <table mat-table
+           [dataSource]="dataSource"
+           matSort
+           matSortActive="name"
+           matSortDirection="asc"
+           class="list-table">
+
+      <ng-container matColumnDef="flag">
+        <th mat-header-cell *matHeaderCellDef> Flag</th>
+        <td mat-cell *matCellDef="let row">
+          <img [src]="row.flag" [alt]="row.name" class="list-table--flag">
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Country</th>
+        <td mat-cell *matCellDef="let row"> {{row.name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="population">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Population</th>
+        <td mat-cell *matCellDef="let row"> {{row.population | number}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="region">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Region</th>
+        <td mat-cell *matCellDef="let row">{{ row.region }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="capital">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capital</th>
+        <td mat-cell *matCellDef="let row">
+          {{ row.capital ? row.capital : "-" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="borders">
+        <th mat-header-cell *matHeaderCellDef>Borders</th>
+        <td mat-cell *matCellDef="let row">
+          <a>
+            <span (click)="getCountryDetails(border); $event.stopPropagation()"
+              *ngFor="let border of row.borders; let last = last">{{ border }}{{ last ? "" : "," }}
+            </span></a>
+        </td>
+      </ng-container>
+
+      <ng-container>
+        <tr class="mat-row" *matNoDataRow>
+          No data available
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getCountryDetails(row)" class="list-table--row">
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
+  </mat-card>
+</div>

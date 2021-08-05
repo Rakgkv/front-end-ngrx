@@ -1,0 +1,84 @@
+<!-- <div class="app-frame">
+    <mat-card class="list-card" *ngIf="dataSource">
+      <table mat-table
+             [dataSource]="dataSource"
+             matSort
+             matSortActive="name"
+             matSortDirection="asc"
+             class="list-table">
+  
+        <ng-container matColumnDef="flag">
+          <th mat-header-cell *matHeaderCellDef> Flag</th>
+          <td mat-cell *matCellDef="let row">
+            <img [src]="row.flag" [alt]="row.name" class="list-table--flag">
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Country</th>
+          <td mat-cell *matCellDef="let row"> {{row.name}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="population">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Population</th>
+          <td mat-cell *matCellDef="let row"> {{row.population | number}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="area">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Area</th>
+          <td mat-cell *matCellDef="let row">{{ row.area }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="capital">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Capital</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.capital ? row.capital : "-" }}
+          </td>
+        </ng-container>
+        <ng-container>
+          <tr class="mat-row" *matNoDataRow>
+            No data available
+          </tr>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: false"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="list-table--row">
+        </tr>
+      </table>
+    </mat-card>
+  </div>
+   -->
+   <!-- <mat-card class="country-details">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Country Details</mat-card-title>
+        <mat-card-subtitle>Country</mat-card-subtitle>
+    </mat-card-header>
+</mat-card> -->
+
+<mat-card>
+    <mat-card-content>
+        rakesh
+         <!-- {{(countryDetails$ | async) | json}} -->
+        <table>
+            <!-- <tr>
+                <th>Name:</th>
+                <td>{{(countryDetails$ | async).name}}</td>
+            </tr> -->
+            <!-- <tr>
+                <th>Capital:</th>
+                <td data-cy="countryCapital">{{countryDetails.capital}}</td>
+            </tr>
+            <tr>
+                <th>Population:</th>
+                <td>{{countryDetails.population}}</td>
+            </tr>
+            <tr>
+                <th>Flag</th>
+                <td>
+                    <div class="portrait"><img [src]="countryDetails.flag" /></div>
+                </td>
+            </tr> -->
+        </table>
+    </mat-card-content>
+</mat-card>
