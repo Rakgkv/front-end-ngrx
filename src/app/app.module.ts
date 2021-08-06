@@ -53,7 +53,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatSelectModule,
     MatOptionModule,
     MatCardModule,
-    StoreModule.forRoot({ countries: countryReducer }),
+    StoreModule.forRoot({ appState: countryReducer }),
     BrowserAnimationsModule,
     EffectsModule.forRoot([ CountryEffects ]),
     ServiceWorkerModule.register('ngsw-worker.js', {

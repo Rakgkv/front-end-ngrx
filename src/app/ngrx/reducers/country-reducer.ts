@@ -19,7 +19,7 @@ export interface CountryState {
 
 const initialState:Array<Country> = []
 
-export const selectCountryState = createFeatureSelector<CountryState>('countryState');
+export const selectCountryState = createFeatureSelector<CountryState>('appState');
 
 export const getCountries = createSelector(
   selectCountryState,

@@ -3,10 +3,14 @@ import { CountryService } from 'src/app/service/country.service';
 import { MatCardModule } from '@angular/material/card';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { CountryState } from 'src/app/ngrx/reducers/country-reducer';
+import {
+  CountryState,
+  getCountry,
+} from 'src/app/ngrx/reducers/country-reducer';
 import { Observable } from 'rxjs';
 import { Country } from 'src/model/country';
 import { MatTableDataSource } from '@angular/material/table';
+import { fetchCountryDetail } from 'src/app/ngrx/actions/country.actions';
 
 @Component({
   selector: 'app-country-details',
@@ -14,19 +18,18 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./country-details.component.scss'],
 })
 export class CountryDetailsComponent implements OnInit {
-
   displayedColumns: string[] = [
     'flag',
     'name',
     'population',
     'capital',
-    'area'
+    'area',
   ];
 
   // countryDetails$:Observable<any>
-  countryDetails$: Observable<Country> = this.store.select('country');
+  countryDetails$: Observable<Country>;
   dataSource: any;
-  country: any
+  country: any;
   constructor(
     private _http: CountryService,
     private route: ActivatedRoute,
@@ -34,13 +37,16 @@ export class CountryDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.countryDetails$= this.store.select('country');
-    console.log("country" , this.countryDetails$ )
+    this.countryDetails$ = this.store.select(getCountry);
     this.countryDetails$.subscribe((data: any) => {
-     console.log(data)
-    this.dataSource = new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource(data);
     });
-   
+    this.route.params.subscribe((params) => {
+      this.store.dispatch(
+        fetchCountryDetail({
+          payload: { countryName: params.countryCode },
+        })
+      );
+    });
   }
 }
-
