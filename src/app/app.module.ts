@@ -10,9 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { searchReducer } from './ngrx/reducers/search-reducer';
 import { AppEffects } from './ngrx/effects/app.effects';
 import { CommonModule } from '@angular/common';
-// import { CountryListComponent } from './country-list/country-list.component';
 import { HomeComponent } from './pages/home/home.component';
-// import { CountryDetailsComponent } from './components/country-details/country-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table'  
 import { MatPaginatorModule } from '@angular/material/paginator';

@@ -6,17 +6,17 @@ import { getData, getDataSuccess } from '../actions/app.actions';
 
 @Injectable()
 export class AppEffects {
-
-  loadData$ = createEffect(() => this.actions$.pipe(
-    ofType(getData),
-    switchMap(({ searchTerm }) => of([])
-      .pipe(
-        map(data => getDataSuccess({ data })),
-        catchError(() => EMPTY),
-      )),
-    ),
+  loadData$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(getData),
+      switchMap(({ searchTerm }) =>
+        of([]).pipe(
+          map((data) => getDataSuccess({ data })),
+          catchError(() => EMPTY)
+        )
+      )
+    )
   );
 
-  constructor(private actions$: Actions) {
-  }
+  constructor(private actions$: Actions) {}
 }

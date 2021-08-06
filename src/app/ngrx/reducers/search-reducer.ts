@@ -14,9 +14,12 @@ const _searchReducer = createReducer(
   on(search, (state, { searchTerm }) => {
     return { ...state, searchTerm };
   }),
-  on(reset, (state) => initialState),
+  on(reset, (state) => initialState)
 );
 
-export function searchReducer(state: SearchState | undefined, action: any): SearchState {
+export function searchReducer(
+  state: SearchState | undefined,
+  action: any
+): SearchState {
   return _searchReducer(state, action);
 }

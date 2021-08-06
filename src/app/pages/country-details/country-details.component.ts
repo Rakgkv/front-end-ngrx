@@ -26,7 +26,6 @@ export class CountryDetailsComponent implements OnInit {
     'area',
   ];
 
-  // countryDetails$:Observable<any>
   countryDetails$: Observable<Country>;
   dataSource: any;
   country: any;
@@ -50,3 +49,4 @@ export class CountryDetailsComponent implements OnInit {
     });
   }
 }
+

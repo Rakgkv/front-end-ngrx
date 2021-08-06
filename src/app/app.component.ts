@@ -5,12 +5,10 @@ import { select, State } from '@ngrx/store';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.scss' ],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
-  constructor(private state: State<AppState>) {
-  }
+  constructor(private state: State<AppState>) {}
 
   public searchTerm$ = this.state.pipe(select(selectSearchTerm));
 }
