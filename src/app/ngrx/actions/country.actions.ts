@@ -29,23 +29,3 @@ export const fetchCountiriesByRegionFailure = createAction(
   '[Country] Fetch Countries region Failure',
   props<{ payload: { error: Error } }>()
 );
-
-export const fetchCountryDetail = createAction(
-  '[Country] Fetch Country Details',
-  props<{
-    payload: {
-      countryName: string;
-    };
-  }>()
-);
-
-export const fetchCountryDetailSuccess = createAction(
-  '[Country] Fetch Country Details Success',
-  props<{ payload: { country: Country } }>()
-);
-
-export const fetchCountryDetailFailure = createAction(
-  '[Country] Fetch Country Details Failure',
-  props<{ payload: { error: Error } }>()
-);
-

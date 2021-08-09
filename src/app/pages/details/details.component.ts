@@ -10,10 +10,10 @@ import { Country } from 'src/model/country';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  countryDetails$: Observable<Country> = this.store.select('country');
+  // countryDetails$: Observable<Country> = this.store.select('country');
   constructor(private store: Store<CountryState>) {}
 
   ngOnInit(): void {
-    this.countryDetails$ = this.store.select('country');
+    // this.countryDetails$ = this.store.select('country');
   }
 }

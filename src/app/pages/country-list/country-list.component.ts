@@ -18,9 +18,6 @@ import {
   fetchCountriesSuccess,
   fetchCountiriesByRegion,
   fetchCountiriesByRegionSuccess,
-  fetchCountryDetail,
-  fetchCountryDetailSuccess,
-  fetchCountryDetailFailure,
   fetchCountiriesByRegionFailure,
 } from '../../ngrx/actions/country.actions';
 import {

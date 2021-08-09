@@ -35,7 +35,6 @@ import { MatOptionModule } from '@angular/material/core';
     CountryListComponent,
     HomeComponent,
     DetailsComponent,
-    CountryDetailsComponent,
   ],
   imports: [
     CommonModule,

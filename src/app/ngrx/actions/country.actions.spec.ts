@@ -5,9 +5,6 @@ import {
   fetchCountiriesByRegionSuccess,
   fetchCountries,
   fetchCountriesSuccess,
-  fetchCountryDetail,
-  fetchCountryDetailFailure,
-  fetchCountryDetailSuccess,
 } from './country.actions';
 
 describe('Countries API actions', () => {
@@ -24,7 +21,6 @@ describe('Countries API actions', () => {
       );
     });
   });
-  
 
   describe('Get Countries Failure action', () => {
     it('Should return the Fetch Countries Failure action', () => {
@@ -54,28 +50,6 @@ describe('Countries API actions', () => {
     it('Should return the Fetch Countries region failure action', () => {
       expect(fetchCountiriesByRegionFailure.type).toBe(
         '[Country] Fetch Countries region Failure'
-      );
-    });
-  });
-
-  describe('Get Country details Fetch Country detail action', () => {
-    it('Should return the Fetch Countries region', () => {
-      expect(fetchCountryDetail.type).toBe('[Country] Fetch Country Details');
-    });
-  });
-
-  describe('Get Country Fetch Country detail Success action', () => {
-    it('Should return the Fetch Countries region Success action', () => {
-      expect(fetchCountryDetailSuccess.type).toBe(
-        '[Country] Fetch Country Details Success'
-      );
-    });
-  });
-
-  describe('Get Country Fetch Country detail action', () => {
-    it('Should return the Fetch Countries region failure action', () => {
-      expect(fetchCountryDetailFailure.type).toBe(
-        '[Country] Fetch Country Details Failure'
       );
     });
   });

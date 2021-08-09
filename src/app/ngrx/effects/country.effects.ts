@@ -8,9 +8,6 @@ import {
   fetchCountriesSuccess,
   fetchCountiriesByRegion,
   fetchCountiriesByRegionSuccess,
-  fetchCountryDetail,
-  fetchCountryDetailSuccess,
-  fetchCountryDetailFailure,
   fetchCountiriesByRegionFailure,
 } from '../actions/country.actions';
 import { CountryService } from 'src/app/service/country.service';
@@ -56,31 +53,6 @@ export class CountryEffects {
       catchError((error) => {
         return of(
           fetchCountiriesByRegionFailure({
-            payload: {
-              error,
-            },
-          })
-        );
-      })
-    )
-  );
-
-  loadselectedCountry$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(fetchCountryDetail),
-      switchMap((action) =>
-        this.countryService.getCountryDetails(action.payload.countryName)
-      ),
-      map((res) =>
-        fetchCountryDetailSuccess({
-          payload: {
-            country: res,
-          },
-        })
-      ),
-      catchError((error) => {
-        return of(
-          fetchCountryDetailFailure({
             payload: {
               error,
             },

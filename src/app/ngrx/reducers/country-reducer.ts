@@ -13,8 +13,6 @@ import {
   fetchCountiriesByRegion,
   fetchCountiriesByRegionSuccess,
   fetchCountiriesByRegionFailure,
-  fetchCountryDetailSuccess,
-  fetchCountryDetailFailure,
 } from '../actions/country.actions';
 
 export interface CountryState {
@@ -61,14 +59,5 @@ export const countryReducer = createReducer(
     ...state,
     err: payload.error,
     countires: [],
-  })),
-  on(fetchCountryDetailSuccess, (state, { payload }) => ({
-    ...state,
-    country: payload.country,
-  })),
-  on(fetchCountryDetailFailure, (state, { payload }) => ({
-    ...state,
-    err: payload.error,
-    country: [],
   }))
 );

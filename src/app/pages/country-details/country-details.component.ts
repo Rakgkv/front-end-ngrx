@@ -10,7 +10,8 @@ import {
 import { Observable } from 'rxjs';
 import { Country } from 'src/model/country';
 import { MatTableDataSource } from '@angular/material/table';
-import { fetchCountryDetail } from 'src/app/ngrx/actions/country.actions';
+import { fetchCountryDetail } from './store/country-details.action';
+import { getCountryDetails } from './store/country-details.reducer';
 
 @Component({
   selector: 'app-country-details',
@@ -36,7 +37,7 @@ export class CountryDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.countryDetails$ = this.store.select(getCountry);
+    this.countryDetails$ = this.store.select(getCountryDetails);
     this.countryDetails$.subscribe((data: any) => {
       this.dataSource = new MatTableDataSource(data);
     });
@@ -49,4 +50,3 @@ export class CountryDetailsComponent implements OnInit {
     });
   }
 }
-
